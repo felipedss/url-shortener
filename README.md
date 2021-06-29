@@ -21,3 +21,28 @@ while(number>0){
     number=number/62;
 }
 ```
+
+### How to use
+
++ With docker and docker-compose
+
+```sh
+$ git clone https://github.com/felipedss/url-shortener.git
+$ cd url-shortener
+$ docker-compose up
+```
++ Without docker
+
+```shell
+$ git clone https://github.com/felipedss/url-shortener.git
+```
+
+Open project in your favorite editor and change application.yml file to point to your database
+
+```shell
+cd url-shortener
+mvn spring-boot:run
+```
+Open localhost:8080/swagger-ui.html to see endpoints.
+
+
