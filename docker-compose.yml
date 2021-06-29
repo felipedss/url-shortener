@@ -1,0 +1,23 @@
+version: '3'
+services:
+  postgres-local:
+    container_name: postgres
+    image: postgres:12.2
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: shortener
+      PGDATA: /data/postgres
+    ports:
+      - 5432:5432
+  url-shortener:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: feliperosadr/url-shortener
+    restart: on-failure
+    network_mode: host
+    depends_on:
+      - postgres-local
+    ports:
+      - 8080:8080
